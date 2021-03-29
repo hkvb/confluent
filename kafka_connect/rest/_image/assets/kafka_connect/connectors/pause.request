@@ -1,0 +1,3 @@
+PUT ${CONTECO_REST_BASE_URLPREFIX}/connectors/${CONTECO_REST_BASE_URLSUFFIX}/pause
+Host: ${CONTECO_REST_BASE_HOST}
+Accept: application/json

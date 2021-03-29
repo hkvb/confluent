@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+prefix="hkvb_confluent_controlcenter_sasl__$1"
+prefix="hkvb_confluent_controlcenter_sasl__$1"

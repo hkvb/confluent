@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+prefix="vcw_module_hkvb_confluent_ksqldb_sasl_traefik__$1"
+prefix="vcw_module_hkvb_confluent_ksqldb_sasl_traefik__$1"
+
+if [[ "vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_nginx_config_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_nginx_config_volume
+fi
+
+if [[ "vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_ksql_server_queries_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_ksql_server_queries_volume
+fi
+
+if [[ "vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_nginx_config_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker run -v vcw_controlplane_repos:/source -v vcw_module_hkvb_confluent_ksqldb_sasl_traefik__ksqldb_nginx_config_volume:/vcw/pwd ${VCW_REGISTRY}hkvb/controlplane.vcw console cmd cp -r /source/hkvb/confluent_ksqldb/sasl/traefik/_module/volumes/ksqldb_nginx_config_volume/* /vcw/pwd
+fi

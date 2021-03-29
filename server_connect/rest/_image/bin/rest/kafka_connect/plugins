@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+(
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
+  . executionplane-invoke "$0 $@"
+
+  export CONTECO_REST_BASE_REQUESTLINE="$@"
+  if [[ "$1" != "validate" ]] ; then method="get"; else method="validate"; shift; fi
+  basePath="/conteco/assets/kafka_connect/plugins"
+
+  if [[ "$method" == "validate" ]] ; then
+    if [[ "$1" != "-"* ]] ; then export CONTECO_REST_BASE_URLSUFFIX="$1"; shift; fi
+    if [[ "$1" != "-"* ]] ; then export CONTECO_REST_BASE_REQUESTBODY="$(cat /conteco/pwd/connectors/$1.config)"; fi
+  fi
+
+  if [[ "$1" == "--output" ]] ; then outputFile="$2"; shift; shift; fi
+  if [[ "$abort" == "" ]] ; then .base execute-request "$basePath/${method}.request" $outputFile; fi
+
+  executionplane-complete
+)
+
+# basePath,

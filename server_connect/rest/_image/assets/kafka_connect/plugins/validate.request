@@ -1,0 +1,5 @@
+PUT ${CONTECO_REST_BASE_URLPREFIX}/connector-plugins/${CONTECO_REST_BASE_URLSUFFIX}/config/validate
+Host: ${CONTECO_REST_BASE_HOST}
+Content-Type: application/json
+
+${CONTECO_REST_BASE_REQUESTBODY}

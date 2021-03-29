@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# START CONFIGURATION
+DOLLAR='$'
+export VCW_MODULE_PACKAGES="\
+schema_registry:hkvb/confluent/schema_registry/sasl/traefik"
+# END CONFIGURATION
+
+# START OTHER SETTINGS
+# END OTHER SETTINGS
+

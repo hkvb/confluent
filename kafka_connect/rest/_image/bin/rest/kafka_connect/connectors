@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+(
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
+  . executionplane-invoke "$0 $@"
+
+  export CONTECO_REST_BASE_REQUESTLINE="$@"
+  method="$1"; shift;
+  basePath="/conteco/assets/kafka_connect/connectors"
+
+  case $method in
+    --info)
+      abort="true"
+      executionplane-error "No implementation for modeco deploy --info: $@"
+    ;;
+    config)
+      basePath="/conteco/assets/kafka_connect/connectors/config"
+      method="$1"; shift;
+      case $method in
+        get)
+          if [[ "$1" != "" && "$1" != "-"* ]] ; then export CONTECO_REST_BASE_URLSUFFIX="$1"; shift; fi
+        ;;
+        put)
+          export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+          export CONTECO_REST_BASE_REQUESTBODY="$(cat /conteco/pwd/connectors/${CONTECO_REST_BASE_URLSUFFIX}.config)"
+        ;;
+      esac
+    ;;
+    delete)
+      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+    ;;
+    get)
+      if [[ "$1" != "" && "$1" != "-"* ]] ; then export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+      else method="list"; fi
+    ;;
+    list)
+    ;;
+    pause)
+      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+    ;;
+    post)
+      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+      export CONTECO_REST_BASE_REQUESTBODY="$(cat /conteco/pwd/connectors/${CONTECO_REST_BASE_URLSUFFIX}.config)"
+    ;;
+    pause|restart|resume|status)
+      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+    ;;
+    *)
+      abort="true"
+      executionplane-error "invalid API method: $method"
+    ;;
+  esac
+
+  if [[ "$1" == "--output" ]] ; then outputFile="$2"; shift; shift; fi
+  if [[ "$abort" == "" ]] ; then .base execute-request "$basePath/${method}.request" $outputFile; fi
+
+  executionplane-complete
+)
+
+# basePath,

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+(
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
+  . executionplane-invoke "$0 $@"
+
+  connectors post test-1 ;
+  connectors list ;
+  connectors get test-1 ;
+  connectors delete test-1 ;
+  connectors config put test-1 ;
+  connectors config get test-1 ;
+  connectors status test-1 ;
+  connectors pause test-1 ;
+  connectors resume test-1 ;
+  connectors restart test-1 ;
+
+  topics test-1 ;
+  topics reset test-1 ;
+
+  tasks test-1 ;
+
+  connectors delete test-1 ;
+
+  plugins ;
+  plugins validate org.apache.kafka.connect.file.FileStreamSourceConnector test-1 ;
+
+  executionplane-complete
+)

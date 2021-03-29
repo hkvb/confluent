@@ -1,0 +1,3 @@
+GET ${CONTECO_REST_BASE_URLPREFIX}/connectors/${CONTECO_REST_BASE_URLSUFFIX}
+Host: ${CONTECO_REST_BASE_HOST}
+Accept: application/json

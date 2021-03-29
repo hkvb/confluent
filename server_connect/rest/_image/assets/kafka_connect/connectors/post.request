@@ -1,0 +1,8 @@
+POST ${CONTECO_REST_BASE_URLPREFIX}/connectors
+Host: ${CONTECO_REST_BASE_HOST}
+Content-Type: application/json
+
+{
+    "name": "${CONTECO_REST_BASE_URLSUFFIX}",
+    "config": ${CONTECO_REST_BASE_REQUESTBODY}
+}

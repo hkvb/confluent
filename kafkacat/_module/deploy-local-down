@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+prefix="hkvb_confluent_kafka_rest__$1"
+prefix="hkvb_confluent_kafka_rest__$1"
+
+executionplane --silent docker container prune --force

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+prefix="hkvb_confluent_kafka_connect_traefik__$1"
+prefix="hkvb_confluent_kafka_connect_traefik__$1"
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_secrets_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_secrets_volume
+fi
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_connect_secrets_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_connect_secrets_volume
+fi
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_data_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_data_volume
+fi
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_jars_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create hkvb_confluent_kafka_connect_traefik__kz_kafka_connect_jars_volume
+fi
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_nginx_config_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create hkvb_confluent_kafka_connect_traefik__kz_nginx_config_volume
+fi
+
+if [[ "hkvb_confluent_kafka_connect_traefik__kz_nginx_config_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker run -v vcw_controlplane_repos:/source -v hkvb_confluent_kafka_connect_traefik__kz_nginx_config_volume:/vcw/pwd ${VCW_REGISTRY}hkvb/controlplane.vcw console cmd cp -r /source/hkvb/confluent/kafka_connect/traefik/_module/volumes/kz_nginx_config_volume/* /vcw/pwd
+fi

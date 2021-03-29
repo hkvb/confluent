@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+(
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
+  . executionplane-invoke "$0 $@"
+
+  export CONTECO_REST_BASE_REQUESTLINE="$@"
+  method="$1"; shift;
+  basePath="/conteco/assets/kafka_connect/tasks"
+
+  case $method in
+    --info)
+      abort="true"
+      executionplane-error "No implementation for modeco deploy --info: $@"
+    ;;
+    restart|status)
+    export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+    export CONTECO_REST_BASE_URLSUFFIX2="$1"; shift;
+    ;;
+    *)
+      export CONTECO_REST_BASE_URLSUFFIX="$method"; shift;
+      method="get";
+    ;;
+  esac
+
+  if [[ "$1" == "--output" ]] ; then outputFile="$2"; shift; shift; fi
+  if [[ "$abort" == "" ]] ; then .base execute-request "$basePath/${method}.request" $outputFile; fi
+
+  executionplane-complete
+)
+
+# basePath,

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+(
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
+  . executionplane-invoke "$0 $@"
+
+  connectors list ;
+  plugins ;
+
+  executionplane-complete
+)

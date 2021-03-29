@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+
+prefix="package_rest_kafka_connect_$2"
+
+if [[ "package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume
+	fi
+	
+if [[ "package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume" == "$prefix"* ]] ; then
+			executionplane --silent docker run -v package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume:/conteco/pwd ${CONTECO_REGISTRY}$1 cp -r /modeco/volumes/rest_kafka_connect_rest_kafka_connect_data_volume/* /conteco/pwd
+		fi
+		

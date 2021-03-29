@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+prefix="hkvb_confluent_kafka_connect_sasl__$1"
+prefix="hkvb_confluent_kafka_connect_sasl__$1"
+
+executionplane --silent docker container prune --force
+
+if [[ "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_secrets_volume" == "$prefix"* ]] ; then
+	continue="true"
+	while [[ "true" == "$continue" ]] ;
+	do
+		executionplane docker volume rm "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_secrets_volume"
+		result=$(docker volume ls | grep "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_secrets_volume")
+		if [[ "$result" == "" ]] ; then
+			continue="false"
+		else
+			sleep 3;
+		fi
+	done;
+fi
+
+if [[ "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_connect_secrets_volume" == "$prefix"* ]] ; then
+	continue="true"
+	while [[ "true" == "$continue" ]] ;
+	do
+		executionplane docker volume rm "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_connect_secrets_volume"
+		result=$(docker volume ls | grep "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_connect_secrets_volume")
+		if [[ "$result" == "" ]] ; then
+			continue="false"
+		else
+			sleep 3;
+		fi
+	done;
+fi
+
+if [[ "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_data_volume" == "$prefix"* ]] ; then
+	continue="true"
+	while [[ "true" == "$continue" ]] ;
+	do
+		executionplane docker volume rm "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_data_volume"
+		result=$(docker volume ls | grep "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_data_volume")
+		if [[ "$result" == "" ]] ; then
+			continue="false"
+		else
+			sleep 3;
+		fi
+	done;
+fi
+
+if [[ "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_jars_volume" == "$prefix"* ]] ; then
+	continue="true"
+	while [[ "true" == "$continue" ]] ;
+	do
+		executionplane docker volume rm "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_jars_volume"
+		result=$(docker volume ls | grep "hkvb_confluent_kafka_connect_sasl__kz_kafka_connect_jars_volume")
+		if [[ "$result" == "" ]] ; then
+			continue="false"
+		else
+			sleep 3;
+		fi
+	done;
+fi

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+
+prefix="package_rest_kafka_connect_$2"
+
+
+executionplane --silent docker container prune --force
+
+if [[ "package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume" == "$prefix"* ]] ; then
+		continue="true"
+		while [[ "true" == "$continue" ]] ;
+		do
+			executionplane docker volume rm "package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume"
+			result=$(docker volume ls | grep "package_rest_kafka_connect_rest_kafka_connect_rest_kafka_connect_data_volume")
+			if [[ "$result" == "" ]] ; then
+				continue="false"
+			else
+				sleep 3;
+			fi
+		done;
+	fi
+	
