@@ -1,2 +1,0 @@
-boot/shutdown,ksqldb,ksqldb
-start/stop,ksqldb,ksqldb_rest

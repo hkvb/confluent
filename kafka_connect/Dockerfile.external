@@ -1,7 +1,8 @@
 ARG  VCW_TAG=6.0.0
 FROM confluentinc/cp-kafka-connect:${VCW_TAG}
-
+USER root
 COPY ./_image/healthcheck.sh /etc/confluent/docker/healthcheck.sh
+RUN chmod 755 /etc/confluent/docker/healthcheck.sh
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-ibmmq:latest
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-ibmmq-sink:latest
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:latest
@@ -12,6 +13,7 @@ RUN confluent-hub install --no-prompt confluentinc/kafka-connect-servicenow:late
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-syslog:latest
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-mqtt:latest
 RUN confluent-hub install --no-prompt confluentinc/kafka-connect-avro-converter:latest
+USER appuser
 
 LABEL co.vcweb.schema-version="1.0" \
       co.vcweb.label="hkvb/confluent/kafka_connect - External Build" \

@@ -2,9 +2,9 @@
 version: '3'
 services:
 
-# START SERVICE hkvb/confluent_ksqldb/cli
+# START SERVICE hkvb/confluent/ksqldb/cli
   ksqldb_cli:
-    image: ${VCW_REGISTRY}confluentinc/ksqldb-cli:0.15.0
+    image: ${VCW_REGISTRY}confluentinc/cp-ksqldb-cli:6.1.1
     environment: []
     command: []
     volumes: []
@@ -18,7 +18,7 @@ services:
         reservations:
           memory: '${VCW_STACK_KSQLDB_CLI_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
 ${VCW_STACK_KSQLDB_CLI_COMPOSE_EXTENSIONS}
-# END SERVICE hkvb/confluent_ksqldb/cli
+# END SERVICE hkvb/confluent/ksqldb/cli
 
 networks: {${VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay: { external: true }}
 volumes: {}

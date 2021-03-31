@@ -20,37 +20,15 @@ Simple stack of Confluent Kafka community edition.
 
 ### hkvb/confluent/kafka_connect
 
-Simple stack of Confluent Kafka Connect.
+External build of Confluent Kafka Connect installing a selection of libraries.
 
 ### hkvb/confluent/kafka_connect/rest
 
 REST client for Confluent Kafka Connect.
 
-### hkvb/confluent/kafka_connect/sasl
-
-Confluent Kafka Connect with SASL authentication.
-
-### hkvb/confluent/kafka_connect/sasl/traefik
-
-Confluent Kafka Connect with SASL authentication mounted behind Traefik.
-
 ### hkvb/confluent/kafka_connect/traefik
 
 Simple stack of Confluent Kafka Connect mounted behind Traefik.
-
-## Kafka MQTT
-
-### hkvb/kafka_mqtt
-
-Simple stack of Confluent Kafka MQTT.
-
-### hkvb/kafka_mqtt/traefik
-
-Simple stack of Confluent Kafka MQTT mounted behind Traefik.
-
-## Kafkacat
-
-Simple stack of Confluent Kafkacat.
 
 ## ksqlDB
 
@@ -62,21 +40,9 @@ Simple stack of Confluent ksqlDB Server.
 
 Simple stack of Confluent ksqlDB CLI.
 
-### hkvb/confluent/ksqldb/sasl
-
-Confluent ksqlDB Server with SASL authentication.
-
-## hkvb/confluent/ksqldb/sasl/traefik
-
-Simple stack of Confluent ksqlDB Server with SASL authentication behind Traefik.
-
 ## hkvb/confluent/ksqldb/traefik
 
 Simple stack of Confluent ksqlDB Server behind Traefik.
-
-## hkvb/conflent/replicator
-
-Simple stack of Confluent Replicator.
 
 ## Schema Registry
 
@@ -84,43 +50,9 @@ Simple stack of Confluent Replicator.
 
 Simple stack of Confluent Schema Registry.
 
-## hkvb/confluent/schema_registry/sasl
-
-Confluent Schema Registry with SASL authentication.
-
-## hkvb/confluent/schema_registry/sasl/traefik
-
-Confluent Schema Registry with SASL authentication behind Traefik.
-
 ## hkvb/confluent/schema_registry/traefik
 
 Simple stack of Confluent Schema Registry behind Traefik.
-
-## hkvb/conflent/server
-
-Simple stack of Confluent Server.
-
-## Server Connect
-
-### hkvb/confluent/server_connect
-
-Simple stack of Confluent Server Connect.
-
-### hkvb/confluent/server_connect/rest
-
-REST client for Confluent Server Connect.
-
-### hkvb/confluent/server_connect/sasl
-
-Confluent Server Connect with SASL authentication.
-
-### hkvb/confluent/server_connect/sasl/traefik
-
-Confluent Server Connect with SASL authentication mounted behind Traefik.
-
-### hkvb/confluent/server_connect/traefik
-
-Simple stack of Confluent Server Connect mounted behind Traefik.
 
 ## hkvb/conflent/zookeeper
 

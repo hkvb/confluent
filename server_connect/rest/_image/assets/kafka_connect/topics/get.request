@@ -1,3 +1,0 @@
-GET ${CONTECO_REST_BASE_URLPREFIX}/connectors/${CONTECO_REST_BASE_URLSUFFIX}/topics
-Host: ${CONTECO_REST_BASE_HOST}
-Accept: application/json

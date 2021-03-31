@@ -1,4 +1,0 @@
-kz_kafka_connect_secrets_volume
-kz_kafka_connect_connect_secrets_volume
-kz_kafka_connect_data_volume
-kz_kafka_connect_jars_volume

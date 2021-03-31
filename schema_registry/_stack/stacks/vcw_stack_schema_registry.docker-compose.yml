@@ -4,11 +4,11 @@ services:
 
 # START SERVICE hkvb/confluent/schema_registry
   schema_registry:
-    image: ${VCW_REGISTRY}confluentinc/cp-schema-registry:6.0.2
-    environment: ['SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL=zookeeper:2181', 'SCHEMA_REGISTRY_HOST_NAME= schema_registry']
+    image: ${VCW_REGISTRY}confluentinc/cp-schema-registry:6.1.1
+    environment: ['SCHEMA_REGISTRY_HOST_NAME=${VCW_STACK_GLOBAL_STACKPREFIX}', 'SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081', 'SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=${VCW_STACK_SCHEMA_REGISTRY_ENVIRONMENT_KAFKASTORE_BOOTSTRAP_SERVERS}' ${VCW_STACK_SCHEMA_REGISTRY_ENVIRONMENT_EXTRA}]
     command: []
-    volumes: ['${VCW_STACK_GLOBAL_STACKPREFIX}_schema_registry_secrets_volume:/etc/schema-registry/secrets']
-    ports: [${VCW_STACK_SCHEMA_REGISTRY_PORTS}]
+    volumes: ['${VCW_STACK_GLOBAL_STACKPREFIX}_secrets_volume:/etc/schema-registry/secrets']
+    ports: [8081:8081]
     networks: [${VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
@@ -21,5 +21,5 @@ ${VCW_STACK_SCHEMA_REGISTRY_COMPOSE_EXTENSIONS}
 # END SERVICE hkvb/confluent/schema_registry
 
 networks: {${VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay: { external: true }}
-volumes: {${VCW_STACK_GLOBAL_STACKPREFIX}_schema_registry_secrets_volume: { external: true }}
+volumes: {${VCW_STACK_GLOBAL_STACKPREFIX}_secrets_volume: { external: true }}
 ${VCW_STACK_GLOBAL_COMPOSE_EXTENSIONS}

@@ -4,10 +4,10 @@ services:
 
 # START SERVICE hkvb/confluent/kafka_connect/rest
   kafka_connect_rest:
-    image: ${VCW_REGISTRY}hkvb/confluent.kafka_connect.rest:6.0.0
+    image: ${VCW_REGISTRY}hkvb/confluent.kafka_connect.rest:6.1.1
     environment: ['VCW_STACK_STATIC_REST_BASE_API_LOGGING=${VCW_STACK_REST_ENVIRONMENT_REST_BASE_CURL_LOGGING}','VCW_STACK_REST_BASE_PROTOCOL=${VCW_STACK_REST_ENVIRONMENT_REST_KAFKA_CONNECT_PROTOCOL}','VCW_STACK_REST_BASE_HOST=${VCW_STACK_REST_ENVIRONMENT_REST_KAFKA_CONNECT_HOST}','VCW_STACK_REST_BASE_PORT=${VCW_STACK_REST_ENVIRONMENT_REST_KAFKA_CONNECT_PORT}','VCW_STACK_REST_BASE_URLPREFIX=${VCW_STACK_REST_ENVIRONMENT_REST_KAFKA_CONNECT_PREFIX}']
     command: [${VCW_STACK_REST_COMMAND}]
-    volumes: ['${VCW_STACK_GLOBAL_STACKPREFIX}_rest_kafka_connect_data_volume:/conteco/pwd'${VCW_STACK_REST_VOLUMES_MAPPINGS}]
+    volumes: ['${VCW_STACK_GLOBAL_STACKPREFIX}_data_volume:/conteco/pwd'${VCW_STACK_REST_VOLUMES_MAPPINGS}]
     ports: []
     networks: [${VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay]
     deploy:
@@ -22,5 +22,5 @@ ${VCW_STACK_REST_COMPOSE_EXTENSIONS}
 # END SERVICE hkvb/confluent/kafka_connect/rest
 
 networks: {${VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay: { external: true }}
-volumes: {${VCW_STACK_GLOBAL_STACKPREFIX}_rest_kafka_connect_data_volume: { external: true }}
+volumes: {${VCW_STACK_GLOBAL_STACKPREFIX}_data_volume: { external: true }}
 ${VCW_STACK_GLOBAL_COMPOSE_EXTENSIONS}
