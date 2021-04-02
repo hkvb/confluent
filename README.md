@@ -6,11 +6,7 @@ The Confluent image library.
 
 ### hkvb/confluent/controlcenter
 
-Simple stack of Confluent Controlcenter.
-
-### hkvb/confluent/controlcenter/sasl
-
-Confluent Controlcenter using SASL authentication.
+Simple stack and module of Confluent Controlcenter.
 
 ## hkvb/kafka
 
