@@ -1,5 +1,4 @@
-ARG  VCW_TAG=6.0.0
-FROM ${VCW_REGISTRY}confluentinc/cp-kafka-connect:${VCW_TAG}
+FROM ${VCW_REGISTRY}confluentinc/cp-kafka-connect:6.1.1
 
 USER root
 COPY ./_image/healthcheck.sh /etc/confluent/docker/healthcheck.sh
@@ -17,9 +16,9 @@ RUN confluent-hub install --no-prompt confluentinc/kafka-connect-avro-converter:
 USER appuser
 
 LABEL co.vcweb.schema-version="1.0" \
-      co.vcweb.label="${VCW_REALM}/confluent/kafka_connect - External Build" \
+      co.vcweb.label="hkvb/confluent/kafka_connect - External Build" \
       co.vcweb.description="The Official Confluent Kafka Connect image with healthcheck removed and a selection of connectors installed." \
-      co.vcweb.realm="${VCW_REALM}" \
+      co.vcweb.realm="hkvb" \
       co.vcweb.image="confluent.kafka_connect" \
-      co.vcweb.tag="${VCW_TAG}" \
+      co.vcweb.tag="6.1.1" \
       co.vcweb.maintainer="infometis@vcweb.co"
