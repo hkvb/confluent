@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+prefix="vcw_module_hkvb_confluent_ksqldb_traefik__$1"
+prefix="vcw_module_hkvb_confluent_ksqldb_traefik__$1"
+
+if [[ "vcw_module_hkvb_confluent_ksqldb_traefik__ksqldb_queries_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_ksqldb_traefik__ksqldb_queries_volume
+fi

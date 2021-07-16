@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+prefix="vcw_module_hkvb_confluent_kafka_connect_traefik__$1"
+prefix="vcw_module_hkvb_confluent_kafka_connect_traefik__$1"
+
+if [[ "vcw_module_hkvb_confluent_kafka_connect_traefik__connect_secrets_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_kafka_connect_traefik__connect_secrets_volume
+fi
+
+if [[ "vcw_module_hkvb_confluent_kafka_connect_traefik__connect_connect_secrets_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_kafka_connect_traefik__connect_connect_secrets_volume
+fi
+
+if [[ "vcw_module_hkvb_confluent_kafka_connect_traefik__connect_data_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_kafka_connect_traefik__connect_data_volume
+fi
+
+if [[ "vcw_module_hkvb_confluent_kafka_connect_traefik__connect_jars_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create vcw_module_hkvb_confluent_kafka_connect_traefik__connect_jars_volume
+fi
